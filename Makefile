@@ -47,9 +47,9 @@ install: rt
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	cp -f rt.1 $(DESTDIR)$(MANPREFIX)/man1
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/rt.1
-	mkdir -p $(DESTDIR)/share/doc/rt-term
-	cp -f rt.xresources $(DESTDIR)/share/doc/rt-term
-	chmod 644 $(DESTDIR)/share/doc/rt-term/rt.xresources
+	mkdir -p $(DESTDIR)$(PREFIX)/share/doc/rt-term
+	cp -f rt.xresources $(DESTDIR)$(PREFIX)/share/doc/rt-term
+	chmod 644 $(DESTDIR)$(PREFIX)/share/doc/rt-term/rt.xresources
 	tic -sx rt.info
 	@echo Please see the README.md file regarding the terminfo entry of rt.
 
