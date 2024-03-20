@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Post-install script for rt.
+# $Ragnarok: rt.postinst,v 1.1 2023/12/01 16:22:20 lecorbeau Exp $
+
+set -e
+
+tic -sx /usr/share/doc/rt-term/rt.info

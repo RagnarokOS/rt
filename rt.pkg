@@ -1,0 +1,17 @@
+Package: rt
+Version: 01
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+Architecture: amd64
+Section: x11
+Provides: x-terminal-emulator
+Files: rt /usr/bin/
+ rt.1 /usr/share/man/man1/
+ rt.xresources /usr/share/doc/rt-term
+ rt.info /usr/share/doc/rt-term
+Postinst: rt.postinst
+Readme: README.md
+Copyright: LICENSE
+Description: Ragnarok terminal
+ rt is a fork of Suckless' st. It is primarily designed to offer
+ a minimal terminal for tmux(1), and can be configured entirely
+ through the .Xresources file.
