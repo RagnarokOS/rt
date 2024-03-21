@@ -1,9 +1,7 @@
-# $Ragnarok: config.mk,v 1.4 2023/12/01 19:34:25 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.5 2024/03/21 15:34:26 lecorbeau Exp $
 
 # rt version
 VERSION = 0.1
-
-include ${TOPDIR}/usr/share/X11/mk/xprogs.mk
 
 # paths
 PREFIX = /usr
@@ -24,8 +22,9 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender \
 
 # flags
 STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 ${HARDENING_CPPFLAGS}
-STCFLAGS = $(INCS) ${O_FLAG} ${CFLAGS_LTO} $(STCPPFLAGS) $(CPPFLAGS) ${HARDENING_CFLAGS}
-STLDFLAGS = $(LIBS) ${LDFLAGS_LTO} $(LDFLAGS) ${HARDENING_LDFLAGS}
+STCFLAGS = $(INCS) -O2 -flto=thin $(STCPPFLAGS) $(CPPFLAGS) -Wformat -Wformat-security \
+	   -fstack-clash-protection -fstack-protector-strong -fcf-protection
+STLDFLAGS = $(LIBS) -flto=thin -Wl,-O2 $(LDFLAGS) -Wl,-z,relro,-z,now -Wl,--as-needed
 
 # OpenBSD:
 #CPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
