@@ -11,6 +11,7 @@ Files: rt /usr/bin/
 Postinst: rt.postinst
 Readme: README.md
 Copyright: LICENSE
+Changelog: changelog
 Description: Ragnarok terminal
  rt is a fork of Suckless' st. It is primarily designed to offer
  a minimal terminal for tmux(1), and can be configured entirely
