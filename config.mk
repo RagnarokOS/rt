@@ -1,7 +1,7 @@
-# $Ragnarok: config.mk,v 1.6 2024/03/24 16:41:30 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.7 2025/03/10 18:40:22 lecorbeau Exp $
 
 # rt version
-VERSION = 0.1
+VERSION = 01
 
 # paths
 PREFIX = /usr
@@ -21,10 +21,9 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender \
        `$(PKG_CONFIG) --libs freetype2`
 
 # flags
-STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_FORTIFY_SOURCE=2
-STCFLAGS = $(INCS) -O2 -flto=thin $(STCPPFLAGS) $(CPPFLAGS) -Wformat -Wformat-security \
-	   -fstack-clash-protection -fstack-protector-strong -fcf-protection
-STLDFLAGS = $(LIBS) -flto=thin -Wl,-O2 $(LDFLAGS) -Wl,-z,relro,-z,now -Wl,--as-needed
+STCPPFLAGS += -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
+STCFLAGS += $(INCS) $(STCPPFLAGS) $(CPPFLAGS)
+STLDFLAGS += $(LDFLAGS) $(LIBS)
 
 # OpenBSD:
 #CPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
@@ -34,4 +33,4 @@ STLDFLAGS = $(LIBS) -flto=thin -Wl,-O2 $(LDFLAGS) -Wl,-z,relro,-z,now -Wl,--as-n
 #MANPREFIX = ${PREFIX}/man
 
 # compiler and linker
-CC = clang
+#CC = clang
