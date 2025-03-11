@@ -1,6 +1,6 @@
 # rt - simple terminal
 # See LICENSE file for copyright and license details.
-# $Ragnarok: Makefile,v 1.2 2025/03/10 18:40:24 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.3 2025/03/11 14:30:57 lecorbeau Exp $
 .POSIX:
 
 include config.mk
@@ -38,7 +38,7 @@ dist: clean
 	cp -R FAQ LEGACY TODO LICENSE Makefile README.md config.mk \
 		config.def.h rt.info rt.1 rt.xresources arg.h rt.h win.h $(SRC) \
 		rt-$(VERSION)
-	tar -xzvf rt-$(VERSION).tgz rt-$(VERSION)
+	tar -czvf rt-$(VERSION).tgz rt-$(VERSION)
 
 install: rt
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
