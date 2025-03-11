@@ -1,4 +1,4 @@
-# $Ragnarok: config.mk,v 1.7 2025/03/10 18:40:22 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.7 2025/03/10 18:40:22 lecorbeau Exp i $
 
 # rt version
 VERSION = 01
@@ -22,7 +22,7 @@ LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft -lXrender \
 
 # flags
 STCPPFLAGS += -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
-STCFLAGS += $(INCS) $(STCPPFLAGS) $(CPPFLAGS)
+STCFLAGS += $(INCS) $(STCPPFLAGS) $(CPPFLAGS) $(CFLAGS)
 STLDFLAGS += $(LDFLAGS) $(LIBS)
 
 # OpenBSD:
